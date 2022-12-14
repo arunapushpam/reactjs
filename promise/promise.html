@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+           
+
+            //promise
+            function name(){
+	            return new Promise(function(resolve,reject){
+		            setTimeout(function(){
+			         console.log("Promise")
+			        reject()
+			    });
+		    })
+	        }
+        name()
+	        .then(function(resolve){
+	            console.log("success")
+	    })
+        .catch(function(reject){
+	        console.log("error")
+	    })
+             //calback
+             function call(){
+                console.log("first function");
+             }
+             function order(a){
+                console.log("second function");
+                a();
+                console.log("tharid functnn");
+             }
+             order(call);
+
+             //callbackhell
+                function get(){
+                    setTimeout(function(){
+                        console.log("first");
+                        get1();
+                    },3000);
+                }
+                function get1(){
+                    setTimeout(function(){
+                        console.log("second");
+                        get2();
+                    },1000);
+                }
+
+                function get2(){
+                    setTimeout(function(){
+                        console.log("third");
+                        get3();
+                    });
+                }
+                function get3(){
+                    setTimeout(function(){
+                        console.log("first");
+                        get1();
+                    },2000);
+                }
+                get()
+
+
+        </script>
+</body>
+</html>
