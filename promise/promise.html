@@ -15,17 +15,17 @@
 	            return new Promise(function(resolve,reject){
 		            setTimeout(function(){
 			         console.log("Promise")
-			        reject()
+			        resolve()
 			    });
 		    })
 	        }
-        name()
-	        .then(function(resolve){
+            name()
+	            .then(function(resolve){
 	            console.log("success")
-	    })
-        .catch(function(reject){
+	         })
+            .catch(function(reject){
 	        console.log("error")
-	    })
+	     })
              //calback
              function call(){
                 console.log("first function");
@@ -38,32 +38,56 @@
              order(call);
 
              //callbackhell
-                function get(){
-                    setTimeout(function(){
-                        console.log("first");
-                        get1();
-                    },3000);
-                }
-                function get1(){
-                    setTimeout(function(){
-                        console.log("second");
-                        get2();
-                    },1000);
-                }
+                <!-- function get(){ -->
+                    <!-- setTimeout(function(){ -->
+                        <!-- console.log("first"); -->
+                        <!-- get1(); -->
+                    <!-- },3000); -->
+                <!-- } -->
+                <!-- function get1(){ -->
+                    <!-- setTimeout(function(){ -->
+                        <!-- console.log("second"); -->
+                        <!-- get2(); -->
+                    <!-- },1000); -->
+                <!-- } -->
 
-                function get2(){
-                    setTimeout(function(){
-                        console.log("third");
-                        get3();
-                    });
-                }
-                function get3(){
-                    setTimeout(function(){
-                        console.log("first");
-                        get1();
-                    },2000);
-                }
-                get()
+                <!-- function get2(){ -->
+                    <!-- setTimeout(function(){ -->
+                        <!-- console.log("third"); -->
+                        <!-- get3(); -->
+                    <!-- }); -->
+                <!-- } -->
+                <!-- function get3(){ -->
+                    <!-- setTimeout(function(){ -->
+                        <!-- console.log("first"); -->
+                        <!-- get1(); -->
+                    <!-- },2000); -->
+                <!-- } -->
+                <!-- get() -->
+				function getStart(){
+	    setTimeout(function(){
+		    console.log("first callback");
+			getStart1();
+		},1000);
+	}
+	function getStart1(){
+	    setTimeout(function(){
+		    console.log("second callback");
+			getStart2();
+		},2000);
+	}
+	function getStart2(){
+	    setTimeout(function(){
+		    console.log("third callback");
+			getStart3();
+		},4000)
+	}
+	function getStart3(){
+	    setTimeout(function(){
+		    console.log("fourth callback")
+		},3000);
+	}
+	getStart()
 
 
         </script>
