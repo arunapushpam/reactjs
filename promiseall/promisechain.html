@@ -72,6 +72,22 @@
 			console.log("error")
 		})
 		
+		<!-- promise all -->
+		let pro= new Promise(function(resolve,reject){
+		   resolve("res");
+		   });
+		   
+		 let pro1= new Promise(function(resolve,reject){
+		   resolve("res1");
+		   });
+		   
+		Promise.all([pro,pro1])
+			.then(function (suce){
+				console.log("success",suce);
+				})
+			.catch(function (err){
+				console.log("error",err);
+				});
 		
 		
     
