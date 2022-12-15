@@ -89,6 +89,25 @@
 				console.log("error",err);
 				});
 		
+		<!-- async await -->
+		let pro2= new Promise(function(resolve,reject){
+		   resolve("res1");
+		   });
+		   
+		 let pro3= new Promise(function(resolve,reject){
+		   resolve("res2");
+		   });
+		async function asyn(){
+			try{
+			var res1=await pro2;
+			var res2=await pro3;
+			
+			console.log("res",res1,res2);
+			} catch(err){
+				 console.log("error");
+				 }
+				 }
+			asyn()
 		
     
 	</script>
