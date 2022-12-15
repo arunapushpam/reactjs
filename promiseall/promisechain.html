@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<script>
+		<!-- promise -->
+		
+		let name= new Promise(function(resolve,reject){
+		            setTimeout(function(){
+			         <!-- console.log("Promise") -->
+			       reject()
+			    },2000);
+		    })
+            name
+	            .then(function(resolve){
+	            console.log("success")
+	         })
+            .catch(function(reject){
+	        console.log("error")
+			})
+	     
+		<!-- promise chain    -->
+		let prom1= new Promise(function(resolve,reject){
+		    setTimeout(function(){
+			    resolve()
+			},3000);
+		})
+		let prom2= new Promise(function(resolve,reject){
+			resolve()
+		});
+	
+		let prom3= new Promise(function(resolve,reject){
+		    setTimeout(function(){
+			    reject()
+			},3000);
+		})
+		let prom4= new Promise(function(resolve,reject){
+			    resolve();
+			});
+		
+		prom1
+		   .then(function(){
+			console.log("success")
+		prom2
+			.then(function(){
+		    console.log("sucess");
+		prom3
+			.then(function(){
+			 console.log("sucess");
+		prom4
+			.then(function(){
+			console.log("sucess");
+			})
+		.catch(function(){
+			console.log("error")
+			})
+		})
+		.catch(function(){
+			console.log("error")
+			})		  
+		})
+		.catch(function(){
+			console.log("error")
+			}) 
+		})
+		.catch(function(){
+			console.log("error")
+		})
+		
+		
+		
+    
+	</script>
+</body>
+</html>
